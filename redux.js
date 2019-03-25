@@ -10,6 +10,9 @@ export const createStore = (initialReducer, intiialState = {}) => {
     },
     subscribe = listener => {
       subscribers.push(listener)
+      return () => {
+        subscribers = subscribers.filter(subscriber => subscriber !== listener)
+      }
     }
   }
 }
