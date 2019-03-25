@@ -1,5 +1,8 @@
 module.exports = {
-  createStore: (initialReducer, intiialState = {}) => {
+  createStore: (initialReducer, intiialState = {}, enhancer) => {
+    if (enhancer) {
+      return enhancer(createStore)(initialReducer, intiialState)
+    }
     let reducer = initialReducer
     let subscribers = []
     let state = reducer(intiialState, { type: '__INIT__' })
