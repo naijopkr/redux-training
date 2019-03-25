@@ -9,4 +9,4 @@ const countReducer = (state = 0, action) => {
   }
 }
 
-export default countReducer
+module.exports = countReducer
